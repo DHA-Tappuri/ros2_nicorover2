@@ -24,6 +24,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            'global_localizer = ros2_nicorover2.ros2_global_localizer_main:main',
         ],
     },
 )

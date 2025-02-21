@@ -1,0 +1,25 @@
+/**:
+  ros__parameters:
+    robot_radius: 0.2
+    resolution: 0.05
+    update_frequency: 5.0
+    publish_frequency: 10.0
+    map_frame: map
+    robot_base_frame: base_link
+    use_sim_time: true
+    sensor_plugins:
+      - {plugin: "costmap_2d_cloud/PointCloudLayer", topic: "/Laser_map"}
+    obstacle_layer:
+      obstacle_range: 2.5
+      max_obstacle_height: 2.0
+    origin_x: 0.0
+    origin_y: 0.0
+    width: 10.0
+    height: 10.0
+    lethal_cost: 255
+    costmap_plugins:
+      - {name: "obstacle_layer", type: "costmap_2d.CloudLayer"}
+    plugins:
+      - {name: "inflation_layer", type: "costmap_2d.InflationLayer"}
+      - {name: "static_layer", type: "costmap_2d.StaticLayer"}
+
