@@ -15,11 +15,7 @@ def generate_launch_description():
     ld = LaunchDescription()
     
     # rosbag
-    #bag_file = '/home/ubuntu/Downloads/outdoor_hard_01a'
-    #bag_file = '/home/ubuntu/Downloads/outdoor_hard_01b'
-    #bag_file = '/home/ubuntu/Downloads/outdoor_hard_02a'
-    #bag_file = '/home/ubuntu/Downloads/outdoor_hard_02b'
-    bag_file = '/home/ubuntu/Downloads/outdoor_hard_02a'    
+    bag_file = '/home/sajisaka/ros2_ws/src/nicorover2/outdoor_hard_02a'    
     node_rosbag = ExecuteProcess(
         cmd    = ['ros2','bag','play',bag_file],
         output = 'screen',

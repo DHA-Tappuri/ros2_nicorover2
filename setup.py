@@ -25,6 +25,7 @@ setup(
     entry_points={
         'console_scripts': [
             'global_localizer = ros2_nicorover2.ros2_global_localizer_main:main',
+            'transform_fusion = ros2_nicorover2.ros2_transform_fusion_main:main',            
         ],
     },
 )

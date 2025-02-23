@@ -41,6 +41,22 @@ class global_localizer(object):
         except:
             ret = o3d.geometry.voxel_down_sample(pcd, voxel_size)
         return ret
+        
+    
+    # ICP matching
+    def registration_at_scale(self, pc_scan, pc_map, initial, scale):
+        # downsample map and scan points
+        _pc_scan = self._voxel_down_sample(pc_scan, self._scan_voxel * scale)
+        _pc_map  = self._voxel_down_sample(pc_map,  self._map_voxel  * scale)
+        # ICP matching
+        _icp     = o3d.pipelines.registration.registration_icp( 
+            _pc_scan, _pc_map, 1.0*scale, initial,
+            o3d.pipelines.registration.TransformationEstimationPointToPoint(),
+            o3d.pipelines.registration.ICPConvergenceCriteria(max_iteration=20)
+        )
+        
+        # return result
+        return ( _icp.transformation, _icp.fitness )
 
 
 
